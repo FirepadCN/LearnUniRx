@@ -29,11 +29,11 @@ public class Test13 : MonoBehaviour
             Debug.Log(strIEnumerator2.Current);
         }
 
-        int i = 0;
-        while (IEFuc().MoveNext()&&i<10)
+        var IEFuc_0 = IEFuc();
+        //不能直接使用IEFunc迭代，while (IEFuc().MoveNext())
+        while (IEFuc_0.MoveNext())
         {
-            i++;
-            Debug.Log(IEFuc().Current);
+            Debug.Log(IEFuc_0.Current);
         }
     }
 
@@ -43,7 +43,7 @@ public class Test13 : MonoBehaviour
         Debug.Log("y");
         yield return "z";
         Debug.Log("a");
-        yield return "b";
+        yield return null;
         Debug.Log("c");
         yield break;
         Debug.Log("d");
